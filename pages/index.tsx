@@ -1,11 +1,14 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '@styles/Home.module.css'
-import styled from '@emotion/styled'
-import Button from '@components/Button'
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import styled from "@emotion/styled";
+import { palette } from "@styles/theme";
+import { useRouter } from "next/router";
+import Description from "@components/common/Description"
 
 const Home: NextPage = () => {
+  const router = useRouter();
+
   return (
     <Wrapper>
       <Head>
@@ -25,21 +28,27 @@ const Home: NextPage = () => {
         />
       </ImageWrapper>
 
-      <Button />
+      <Description
+        title="Test your speed"
+        sub={`Active touch ID so you don’t need to confirm\nyour PIN every time you want to send money`}
+      />
 
-      <footer>Apple, Inc</footer>
+      <StartButton onClick={() => router.push("/game")}>START</StartButton>
+
+      {/* <footer>Apple, Inc</footer> */}
     </Wrapper>
   );
-}
+};
 
 const Wrapper = styled.main`
   background: #f6f6f6;
   height: 100vh;
   padding: 1rem 1.5rem;
+  text-align: center;
 `;
 
 const Title = styled.h1`
-  color: #106048;
+  color: ${palette.green};
   text-align: center;
   font-weight: 600;
   font-size: 1.25rem;
@@ -47,6 +56,16 @@ const Title = styled.h1`
 
 const ImageWrapper = styled.div`
   padding: 3.75rem 2rem;
-`
+`;
 
-export default Home
+const StartButton = styled.button`
+  background-color: ${palette.green};
+  width: 100%;
+  padding: 1.25rem 0;
+  border-radius: 36px;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: ${palette.white};
+`;
+
+export default Home;
