@@ -26,7 +26,6 @@ const DescriptionSub = styled.p`
   margin-top: 0.5rem;
   font-size: 0.75rem;
   font-weight: 400;
-  margin-bottom: 4.75rem;
   line-height: 1.125rem;
   white-space: pre;
 `;
