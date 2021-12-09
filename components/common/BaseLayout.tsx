@@ -1,10 +1,10 @@
-import React, { Children } from 'react'
+import React from 'react'
 import styled from "@emotion/styled";
 import { palette } from "@styles/theme";
 
 type BaseLayoutProps = {
   pageTitle: string,
-  handleBackgroundClick: () => void
+  handleBackgroundClick?: () => void
   children: React.ReactNode | React.ReactNodeArray
 }
 
